@@ -4,14 +4,6 @@ import 'package:ocio_y_cultura/models/ocioycultura_model.dart';
 import 'package:ocio_y_cultura/models/ocio_model.dart';
 
 class OcioProvider {
-  final listaTipos = [
-    'Categorias ocio',
-    'Tipo de ocio',
-    'Nombre localida',
-    'Descripcion zona',
-    'Id zona',
-  ];
-
   List<OcioCultura> listaInfo = [];
   Future<List<OcioCultura>> cargarPuntos() async {
     final data =
