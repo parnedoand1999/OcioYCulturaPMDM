@@ -6,6 +6,7 @@ import 'package:ocio_y_cultura/models/ocio_model.dart';
 class OcioProvider {
   List<OcioCultura> listaInfo = [];
   List<String> listazonas = [];
+  List<String> listaTipos = [];
   Future<List<OcioCultura>> cargarPuntos() async {
     final data =
         await rootBundle.loadString('assets/data/Resultados_EOC_es.json');
@@ -28,6 +29,20 @@ class OcioProvider {
       }
     });
     return listazonas;
+  }
+
+  Future<List<String>> cargarTipos(String descripZona) async {
+    if (listaInfo.length == 0) {
+      await cargarPuntos();
+    }
+    listaTipos = [];
+    listaInfo.forEach((pr) {
+      if ((pr.descripZona == descripZona) &&
+          (listaTipos.indexOf(pr.tipo) < 0)) {
+        listaTipos.add(pr.tipo);
+      }
+    });
+    return listaTipos;
   }
 }
 

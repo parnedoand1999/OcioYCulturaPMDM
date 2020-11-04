@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ocio_y_cultura/screens/listatipos_screen.dart';
 
 import 'package:ocio_y_cultura/screens/listazonas_screen.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: ListaZonasScreen(), // ListInformacionScreen(),
+      home: ListaTiposScreen(), //ListaZonasScreen(),// ListInformacionScreen(),
     );
   }
 }
