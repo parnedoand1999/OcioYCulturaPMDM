@@ -24,9 +24,11 @@ class OcioProvider {
     }
     listazonas = [];
     listaInfo.forEach((pr) {
+
       if (listazonas.indexOf(pr.descripZona) < 0) {
         listazonas.add(pr.descripZona);
       }
+
     });
     return listazonas;
   }
