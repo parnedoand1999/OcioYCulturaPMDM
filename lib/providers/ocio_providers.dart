@@ -5,7 +5,7 @@ import 'package:ocio_y_cultura/models/ocio_model.dart';
 
 class OcioProvider {
   List<OcioCultura> listaInfo = [];
-  List<String> listanombres = [];
+  List<String> listazonas = [];
   Future<List<OcioCultura>> cargarPuntos() async {
     final data =
         await rootBundle.loadString('assets/data/Resultados_EOC_es.json');
@@ -17,19 +17,19 @@ class OcioProvider {
     return listaInfo;
   }
 
-  Future<List<String>> cargarNombres() async {
+  Future<List<String>> cargarZonas() async {
     if (listaInfo.length == 0) {
       await cargarPuntos();
     }
-    listanombres = [];
+    listazonas = [];
     listaInfo.forEach((pr) {
-      if (listanombres.length < 3) {
-        if (listanombres.indexOf(pr.nombre) < 0) {
-          listanombres.add(pr.nombre);
+      if (listazonas.length < 3) {
+        if (listazonas.indexOf(pr.descripZona) < 0) {
+          listazonas.add(pr.descripZona);
         }
       }
     });
-    return listanombres;
+    return listazonas;
   }
 }
 
