@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ocio_y_cultura/providers/ocio_providers.dart';
 
-class ListaNombresScreen extends StatelessWidget {
+class ListaZonasScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Nombres "),
+        title: Text("Zonas "),
       ),
       body: _lista(),
     );
@@ -14,7 +14,7 @@ class ListaNombresScreen extends StatelessWidget {
 
   Widget _lista() {
     return FutureBuilder(
-      future: ocioycultura.cargarNombres(),
+      future: ocioycultura.cargarZonas(),
       initialData: [],
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
