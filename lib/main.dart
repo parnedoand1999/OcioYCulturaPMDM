@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:ocio_y_cultura/screens/listazonas_screen.dart';
 
+import 'screens/listInformacion_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
