@@ -10,6 +10,12 @@ OcioCultura ocioCulturaFromJson(String str) =>
 String ocioCulturaToJson(OcioCultura data) => json.encode(data.toJson());
 
 class OcioCultura {
+  final _url = "https://www.turismo.navarra.es/imgs/rrtt/";
+
+  getImgUrl() {
+    return _url + this.path + this.imgFichero;
+  }
+
   OcioCultura({
     this.codrecurso,
     this.urlNombreCast,

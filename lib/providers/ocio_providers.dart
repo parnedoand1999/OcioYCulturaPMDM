@@ -7,6 +7,7 @@ class OcioProvider {
   List<OcioCultura> listaInfo = [];
   List<String> listazonas = [];
   List<String> listaTipos = [];
+  List<OcioCultura> _imgOcioCultura = [];
   Future<List<OcioCultura>> cargarPuntos() async {
     final data =
         await rootBundle.loadString('assets/data/Resultados_EOC_es.json');
@@ -24,11 +25,9 @@ class OcioProvider {
     }
     listazonas = [];
     listaInfo.forEach((pr) {
-
       if (listazonas.indexOf(pr.descripZona) < 0) {
         listazonas.add(pr.descripZona);
       }
-
     });
     return listazonas;
   }
@@ -45,6 +44,20 @@ class OcioProvider {
       }
     });
     return listaTipos;
+  }
+
+  Future<List<OcioCultura>> cargarImgOcioCultura(
+      String descripZona, String tipo) async {
+    if (listaInfo.length == 0) {
+      await cargarPuntos();
+    }
+    _imgOcioCultura = [];
+    listaInfo.forEach((pr) {
+      if ((pr.descripZona == descripZona) && (pr.tipo == tipo)) {
+        _imgOcioCultura.add(pr);
+      }
+    });
+    return _imgOcioCultura;
   }
 }
 
