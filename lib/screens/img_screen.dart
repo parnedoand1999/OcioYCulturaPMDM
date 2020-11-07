@@ -38,8 +38,8 @@ class SelectScreen extends StatelessWidget {
 
   Widget _swiper() {
     return FutureBuilder(
-      future: ocioycultura.cargarListaOcioCultura(
-          "La Ribera", "Museos / Artístico"),
+      future:
+          ocioycultura.cargarImgOcioCultura("La Ribera", "Museos / Artístico"),
       initialData: [],
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
@@ -55,8 +55,8 @@ class SelectScreen extends StatelessWidget {
 
   Widget _slider() {
     return FutureBuilder(
-      future: ocioycultura.cargarListaOcioCultura(
-          "La Ribera", "Museos / Artístico"),
+      future:
+          ocioycultura.cargarImgOcioCultura("La Ribera", "Museos / Artístico"),
       initialData: [],
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
