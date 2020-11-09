@@ -2,17 +2,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:ocio_y_cultura/models/ocioycultura_model.dart';
 import 'package:ocio_y_cultura/providers/ocio_providers.dart';
 import 'package:ocio_y_cultura/screens/listatipos_screen.dart';
+
 import 'package:ocio_y_cultura/widgets/slider_widget.dart';
 import 'package:ocio_y_cultura/widgets/swiper_widget.dart';
 
 class SelectScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
+  final box = GetStorage();
   @override
   Widget build(BuildContext context) {
-    args = Get.arguments;
+    args = Get.arguments ?? new Map<String, Object>();
     return Scaffold(
       appBar: AppBar(
         title: Text("Imagenes de Ocio y Cultura"),
@@ -51,8 +54,9 @@ class SelectScreen extends StatelessWidget {
 
   Widget _swiper() {
     return FutureBuilder(
-      future:
-          ocioycultura.cargarImgOcioCultura(args['descripZona'], args['tipo']),
+      future: ocioycultura.cargarImgOcioCultura(
+          box.read('descripZona') ?? args['descripZona'],
+          box.read('tipo') ?? args['tipo']),
       initialData: [],
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
@@ -68,8 +72,9 @@ class SelectScreen extends StatelessWidget {
 
   Widget _slider() {
     return FutureBuilder(
-      future:
-          ocioycultura.cargarImgOcioCultura(args['descripZona'], args['tipo']),
+      future: ocioycultura.cargarImgOcioCultura(
+          box.read('descripZona') ?? args['descripZona'],
+          box.read('tipo') ?? args['tipo']),
       initialData: [],
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {

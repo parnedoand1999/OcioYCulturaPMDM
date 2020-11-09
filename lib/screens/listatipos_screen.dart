@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:ocio_y_cultura/screens/img_screen.dart';
 import 'package:ocio_y_cultura/screens/listazonas_screen.dart';
 
@@ -7,9 +8,11 @@ import '../providers/ocio_providers.dart';
 
 class ListaTiposScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
+  final box = GetStorage();
   @override
   Widget build(BuildContext context) {
-    args = Get.arguments;
+    box.write('tipo', null);
+    args = Get.arguments ?? new Map<String, Object>();
     return Scaffold(
       appBar: AppBar(
         title: Text("Tipos "),
@@ -27,7 +30,8 @@ class ListaTiposScreen extends StatelessWidget {
 
   Widget _lista(BuildContext context) {
     return FutureBuilder(
-      future: ocioycultura.cargarTipos(args['descripZona']),
+      future: ocioycultura
+          .cargarTipos(box.read('descripZona') ?? args['descripZona']),
       initialData: [],
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
@@ -48,6 +52,7 @@ class ListaTiposScreen extends StatelessWidget {
         title: Text(element),
         trailing: Icon(Icons.keyboard_arrow_right),
         onTap: () {
+          box.write('tipo', element);
           args['tipo'] = element;
           //Navigator.pushNamed(context, 'tipos', arguments: args);
           Get.offAll(SelectScreen(), arguments: args);

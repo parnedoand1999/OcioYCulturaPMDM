@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:ocio_y_cultura/providers/ocio_providers.dart';
 import 'package:get/get.dart';
 import 'package:ocio_y_cultura/screens/listatipos_screen.dart';
 
 class ListaZonasScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
+  final box = GetStorage();
   @override
   Widget build(BuildContext context) {
+    box.write('descripZona', null);
+    box.write('tipo', null);
     return Scaffold(
       appBar: AppBar(
         title: Text("Zonas "),
@@ -38,6 +42,7 @@ class ListaZonasScreen extends StatelessWidget {
         title: Text(element),
         trailing: Icon(Icons.keyboard_arrow_right),
         onTap: () {
+          box.write('descripZona', element);
           args['descripZona'] = element;
           // Navigator.pushNamed(context, 'localidades', arguments: args);
           Get.offAll(ListaTiposScreen(), arguments: args);
