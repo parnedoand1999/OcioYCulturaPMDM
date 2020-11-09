@@ -3,6 +3,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:ocio_y_cultura/providers/ocio_providers.dart';
 import 'package:get/get.dart';
 import 'package:ocio_y_cultura/screens/listatipos_screen.dart';
+import 'package:ocio_y_cultura/widgets/menu_widget.dart';
 
 class ListaZonasScreen extends StatelessWidget {
   Map<String, Object> args = new Map<String, Object>();
@@ -15,6 +16,7 @@ class ListaZonasScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Zonas "),
       ),
+      drawer: MenuWidget(),
       body: _lista(context),
     );
   }
