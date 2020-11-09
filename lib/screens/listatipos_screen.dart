@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ocio_y_cultura/screens/img_screen.dart';
 import 'package:ocio_y_cultura/screens/listazonas_screen.dart';
+import 'package:ocio_y_cultura/widgets/menu_widget.dart';
 
 import '../providers/ocio_providers.dart';
 
@@ -17,6 +18,7 @@ class ListaTiposScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Tipos "),
       ),
+      drawer: MenuWidget(),
       body: _lista(context),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

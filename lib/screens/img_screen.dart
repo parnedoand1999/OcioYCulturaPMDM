@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:ocio_y_cultura/models/ocioycultura_model.dart';
 import 'package:ocio_y_cultura/providers/ocio_providers.dart';
 import 'package:ocio_y_cultura/screens/listatipos_screen.dart';
+import 'package:ocio_y_cultura/widgets/menu_widget.dart';
 
 import 'package:ocio_y_cultura/widgets/slider_widget.dart';
 import 'package:ocio_y_cultura/widgets/swiper_widget.dart';
@@ -20,6 +21,7 @@ class SelectScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Imagenes de Ocio y Cultura"),
       ),
+      drawer: MenuWidget(),
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
