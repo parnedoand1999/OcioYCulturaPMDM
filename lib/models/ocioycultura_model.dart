@@ -11,9 +11,12 @@ String ocioCulturaToJson(OcioCultura data) => json.encode(data.toJson());
 
 class OcioCultura {
   final _url = "https://www.turismo.navarra.es/imgs/rrtt/";
-
+  final _web = "https://www.turismo.navarra.es/esp/organice-viaje/recurso/recurso.aspx?o=";
   getImgUrl() {
     return _url + this.path + this.imgFichero;
+  }
+    getWebUrl() {
+    return _web + this.codrecurso;
   }
 
   OcioCultura({

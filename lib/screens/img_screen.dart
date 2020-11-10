@@ -27,6 +27,14 @@ class SelectScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
+                height: 20.0,
+              ),
+              Center(
+                  child: Text(
+                "Información web",
+                style: Theme.of(context).textTheme.headline6,
+              )),
+            SizedBox(
               height: 20.0,
             ),
             Text("Acceso al mapa"),
