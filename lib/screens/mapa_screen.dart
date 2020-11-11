@@ -57,17 +57,17 @@ class _MapaScreenState extends State<MapaScreen> {
 
   Widget _header() {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => WebViewScreen(ocio: ocio)));
-      },
+      // onTap: () {
+      //   Navigator.push(context,
+      //       MaterialPageRoute(builder: (context) => WebViewScreen(ocio: ocio)));
+      // },
       child: Container(
         child: Column(
           children: [
             Text(ocio.nombre,
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
             SizedBox(
-              height: 30.0,
+              height: 15.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -80,7 +80,7 @@ class _MapaScreenState extends State<MapaScreen> {
                       placeholder: NetworkImage(ocio.getImgUrl()),
                       image: NetworkImage(ocio.getImgUrl()),
                       fit: BoxFit.cover,
-                      height: 100.0,
+                      height: 60.0,
                     ),
                   ),
                 ),
