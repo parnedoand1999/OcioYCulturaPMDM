@@ -103,7 +103,7 @@ class _MapaScreenState extends State<MapaScreen> {
       mapController: map,
       options: new MapOptions(
         center: new LatLng(latlon.lat, latlon.lon),
-        zoom: 18.0,
+        zoom: 17.0,
       ),
       layers: [
         _mapa(),
@@ -118,7 +118,7 @@ class _MapaScreenState extends State<MapaScreen> {
           "{id}/{z}/{x}/{y}@2x.png?access_token={accessToken}",
       additionalOptions: {
         'accessToken':
-            'pk.eyJ1IjoicGVpb2FybmVkbzE5OTkiLCJhIjoiY2toY2VpdTg0MDFsYjJyb2xjdTYxZ2dsMCJ9._7l4xmcaOH4ksiALiS3JpQ',
+            'pk.eyJ1IjoicGVpb2FybmVkbzE5OTkiLCJhIjoiY2toZDhzYW5qMDJnbjJyazlhMTl2YTZ5cSJ9.UA8xp13E2KEzt0E24LBiig',
         'id': 'mapbox.satellite',
       },
     );
